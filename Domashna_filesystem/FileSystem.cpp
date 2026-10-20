@@ -108,6 +108,53 @@ Directory *findDir(Directory &d, const std::string &name) {
 }
 
 int main (int argc, char *argv[]) {
+  Directory myDir, Documents, Audio, Configs, Configs2;
+  myDir.name     = "home";
+  Documents.name = "docs";
+  Audio.name     = "music";
+  Configs.name   = "nvim";
+  Configs2.name  = "nvim";
+
+  addDir(myDir, Documents); // ke se dodade vo home.
+  addDir(myDir, Audio); 
+  addDir(myDir, Configs);
+  addDir(myDir, Configs2); // nema da se dodade.
+
+  findDir(myDir, "nvim");
+
+  File x, x1, y, z, nv;
+  x.name     = "X";
+  x.extetion = "txt";
+  x.byteSize = 24;
+
+  x1.name     = "x";
+  x1.extetion = "txt";
+  x1.byteSize = 24;
+
+  y.name     = "Y";
+  y.extetion = "mpv";
+  y.byteSize = 1024;
+
+  z.name     = "z";
+  z.extetion = "png";
+  z.byteSize = 31023;
   
+  nv.name     = "nv";
+  nv.extetion = "lua";
+  nv.byteSize = 1231453;
+
+  addFile(Documents, x);
+  addFile(Documents, x1);
+  addFile(Audio, y);
+  addFile(Configs, z);
+  addFile(Configs, nv);
+
+  findFile(Configs, "nv");
+
+  UpFunc(Audio);
+
+  ls(myDir);
+
+  getDirectorySize(myDir);
   return 0;
 }
